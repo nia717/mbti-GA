@@ -8,18 +8,22 @@ export default function Document() {
       <Head>
         {/* Google Analytics 代码 */}
         <Script
-          async
+          id="google-analytics-gtag"
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-DBQLTW3EBH"
         />
-        <Script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-DBQLTW3EBH');
-          `}
-        </Script>
+        <Script
+          id="google-analytics-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DBQLTW3EBH');
+            `,
+          }}
+        />
         <Script
           id="baidu-hm"
           strategy="afterInteractive"
