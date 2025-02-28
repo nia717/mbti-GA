@@ -14,6 +14,20 @@ export default function MainLayout(props: MainLayoutProps) {
   return (
     <>
       <Head>
+        {/* Google Analytics 代码 */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DBQLTW3EBH"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-DBQLTW3EBH');
+          `}
+        </Script>
         <title>MBTI 性格测试</title>
         <meta
           name="description"
